@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 body{
     line-height: 1.5;
@@ -10,3 +11,11 @@ input, button, textarea, select {
   font: inherit;
 }
 
+header{
+    height: 150px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
