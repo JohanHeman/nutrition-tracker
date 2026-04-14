@@ -110,6 +110,7 @@ s
 
 #ingredient-list{
     list-style:none;
+    
 }
 
 #ingredient-list li {
@@ -125,7 +126,11 @@ s
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
-    height: 90px;
+    height: 120px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .ingredients-container{
