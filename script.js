@@ -2,20 +2,20 @@ const input = document.getElementById("input")
 const searchBtn = document.getElementById("search")
 let ingredientList = document.getElementById("ingredient-list")
 
-let reslutList = document.getElementById("result-list") 
+let resultList = document.getElementById("result-list") 
 
 let ingredients = []
 
-const foodURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel"
+const foodURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel?limit=2000&offset=0";
 
 
 let nutritionURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel/{nummer}/naringsvarden"
 
-searchBtn.addEventListener("click", addItemToList)
+searchBtn.addEventListener("click", searchFood)
 
-function addItemToList()
+function searchFood()
 {
-
+    renderResults()
 }
 
 
@@ -29,7 +29,7 @@ fetch(foodURL)
             type: item.livsmedelsTyp
         }
     })
-    console.log(ingredients)
+    console.log(ingredients.length)
 })
 
 
@@ -48,24 +48,14 @@ function searchFoods()
 
 function renderResults(){
     const results = searchFoods()
-
+    resultList.innerHTML = "";
     results.forEach(item => {
         const li = document.createElement("li")
         li.textContent = item.name
         li.addEventListener("click", () => {
             addToIngredientList(item)
         })
-
-        reslutList.appendChild(li)
-
+        resultList.appendChild(li)
     })
-
-    //display all mathcing foods in a list on under it 
-
-
 }
 
-
-//create function to search for foods 
-//store the search result inside a variable in global scope
-//create function for adding the item to the list 

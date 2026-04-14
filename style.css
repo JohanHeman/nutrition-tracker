@@ -32,6 +32,13 @@ main{
     height: 80vh;
 }
 
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
 .input-container{
     border: none;
     background-color: #1f2937;
@@ -71,5 +78,33 @@ main{
 
 .input-container button:hover{
     transform: translateY(-2px);
-    background-color: #19c558; 
+    background-color: #19c558;
 }
+s
+
+
+#result-list{
+    list-style:none;
+}
+
+#result-list li {
+    list-style: none;
+    background-color: #1e293b;
+    color: #f1f5f9;
+    border-bottom: 1px solid black; 
+    padding: 12px 14px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#result-list li:hover{
+    transform: translateY(-4px);
+    background-color: #334155;
+}
+.resultlist-container{
+    height: 600px;
+
+}
+
+
