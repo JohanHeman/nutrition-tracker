@@ -30,7 +30,6 @@ fetch(foodURL)
             type: item.livsmedelsTyp
         }
     })
-    console.log(ingredients.length)
 })
 
 
@@ -80,30 +79,26 @@ function renderIngredientList() {
         slider.value = 100
         let output = document.createElement("div")
 
-
-        slider.addEventListener("input", calculateNutrition)
-
         li.appendChild(slider)
 
         li.appendChild(output)
         
         ingredientList.appendChild(li)
 
-        calculateNutrition(item, item.value)
-
     })
 }
 
 
-function calculateNutrition(item, grams){
-}
 
 
-function getNutrition(id){
-    return fetch(
+async function getNutrition(id){
+    const res = await fetch(
         `https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel/${id}/naringsvarden`
     )
-    .then(res => res.json())
+
+    const data = await res.json()
+
+    return data
 }
 
 async function addItemWithNutrition(item)
