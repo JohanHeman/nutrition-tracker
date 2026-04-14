@@ -123,6 +123,9 @@ s
 
     cursor: pointer;
     transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 90px;
 }
 
 .ingredients-container{
