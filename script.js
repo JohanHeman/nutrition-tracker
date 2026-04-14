@@ -5,6 +5,7 @@ let ingredientList = document.getElementById("ingredient-list")
 let resultList = document.getElementById("result-list") 
 
 let ingredients = []
+let selectedIngredients = []
 
 const foodURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel?limit=2000&offset=0";
 
@@ -53,9 +54,48 @@ function renderResults(){
         const li = document.createElement("li")
         li.textContent = item.name
         li.addEventListener("click", () => {
-            addToIngredientList(item)
+            addItemWithNutrition(item)
         })
         resultList.appendChild(li)
     })
 }
 
+
+function addToIngredientList(item){
+    selectedIngredients.push(item)
+    renderIngredientList()
+}
+
+
+function renderIngredientList() {
+    ingredientList.innerHTML = ""
+
+    selectedIngredients.forEach(item => {
+        const li = document.createElement("li")
+
+        li.textContent = item.name
+
+
+        ingredientList.appendChild(li)
+    })
+}
+
+function getNutrition(id){
+    return fetch(
+        `https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel/${id}/naringsvarden`
+    )
+    .then(res => res.json())
+}
+
+function addItemWithNutrition(item)
+{
+    const nutrition = getNutrition(item.id)
+
+    const fullItem = {
+        item, 
+        nutrition: nutrition
+    }
+
+    addToIngredientList(fullItem)
+
+}
