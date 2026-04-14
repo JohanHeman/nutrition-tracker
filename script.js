@@ -25,3 +25,21 @@ fetch(foodURL)
     console.log(ingredients)
 })
 
+
+
+function searchFoods()
+{
+    //get the input value from the input 
+    if(input.value.trim() === ""){
+        alert("please enter valid input")
+        return
+    }
+    
+
+    //check for matches inside the array 
+}
+
+
+//create function to search for foods 
+//store the search result inside a variable in global scope
+//create function for adding the item to the list 
