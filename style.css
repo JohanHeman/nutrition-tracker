@@ -108,4 +108,24 @@ s
 
 }
 
+#ingredient-list{
+    list-style:none;
+}
+
+#ingredient-list li {
+
+    list-style: none;
+    background-color: #1e293b;
+    color: #f1f5f9;
+    border-bottom: 1px solid black; 
+    padding: 12px 14px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ingredients-container{
+    height: 360px;
+}
 

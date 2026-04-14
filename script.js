@@ -74,11 +74,36 @@ function renderIngredientList() {
         const li = document.createElement("li")
 
         li.textContent = item.name
+        const slider = document.createElement("input")
+        slider.type = "range"
+        slider.min = 1
+        slider.value = 100
+
+        slider.addEventListener("input", () => {
+            calculateNutrition(item, slider.value)
+        })
+
+
+        li.appendChild(slider)
+        
 
 
         ingredientList.appendChild(li)
+
+        calculateNutrition(item, slider.value)
     })
 }
+
+
+function calculateNutrition(item, grams){
+    const factor = grams / 100;
+
+    return item.nutrition.naringsvarden.map(n => ({
+        name: n.namn,
+        value: n.varde * factor
+    }));
+}
+
 
 function getNutrition(id){
     return fetch(
@@ -87,12 +112,12 @@ function getNutrition(id){
     .then(res => res.json())
 }
 
-function addItemWithNutrition(item)
+async function addItemWithNutrition(item)
 {
     const nutrition = getNutrition(item.id)
 
     const fullItem = {
-        item, 
+        ...item, //copies all the properties from item into fullitem
         nutrition: nutrition
     }
 
