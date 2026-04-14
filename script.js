@@ -9,7 +9,12 @@ const foodURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmed
 
 let nutritionURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel/{nummer}/naringsvarden"
 
+addBtn.addEventListener("click", test)
 
+function test()
+{
+    renderResults()
+}
 
 
 fetch(foodURL)
@@ -26,17 +31,25 @@ fetch(foodURL)
 })
 
 
-
 function searchFoods()
 {
-    //get the input value from the input 
-    if(input.value.trim() === ""){
-        alert("please enter valid input")
-        return
+    const query = input.value.trim().toLowerCase()
+    if(query === "")
+    {
+        alert("not a valid input")
+        return []
     }
     
+    return ingredients.filter(item => item.name.toLowerCase().includes(query))
+}
 
-    //check for matches inside the array 
+
+function renderResults(){
+    const results = searchFoods()
+
+    results.forEach(item => {
+        alert(item.name)
+    })
 }
 
 
