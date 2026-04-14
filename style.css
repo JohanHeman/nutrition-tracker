@@ -29,7 +29,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
 }
 
 .search-container{
@@ -103,7 +103,8 @@ s
     background-color: #334155;
 }
 .resultlist-container{
-    height: 600px;
+    height: 360px;
+    overflow-y: auto;
 
 }
 
