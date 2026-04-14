@@ -98,7 +98,19 @@ async function getNutrition(id){
 
     const data = await res.json()
 
-    return data
+        const allowed = [
+        "Energi (kcal)",
+        "Protein",
+        "Fett, totalt",
+        "Kolhydrater, tillgängliga",
+        "Fibrer"
+    ];    
+
+    return data.filter(n => allowed.includes(n.namn)).map(n => ({
+        name: n.namn,
+        value: n.varde,
+        unit: n.enhet
+    }))
 }
 
 async function addItemWithNutrition(item)
@@ -113,3 +125,6 @@ async function addItemWithNutrition(item)
     addToIngredientList(fullItem)
 
 }
+
+
+
