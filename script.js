@@ -1,6 +1,8 @@
 const input = document.getElementById("input")
 const addBtn = document.getElementById("add-btn")
-let ingredientsList = document.getElementById("ingredient-list")
+let ingredientList = document.getElementById("ingredient-list")
+
+let reslutList = document.getElementById("result-list") 
 
 let ingredients = []
 
@@ -9,11 +11,11 @@ const foodURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmed
 
 let nutritionURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel/{nummer}/naringsvarden"
 
-addBtn.addEventListener("click", test)
+addBtn.addEventListener("click", addItemToList)
 
-function test()
+function addItemToList()
 {
-    renderResults()
+
 }
 
 
@@ -50,6 +52,11 @@ function renderResults(){
     results.forEach(item => {
         alert(item.name)
     })
+
+    //display all mathcing foods in a list on under it 
+
+    
+
 }
 
 
