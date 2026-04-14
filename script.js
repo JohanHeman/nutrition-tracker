@@ -77,7 +77,18 @@ function renderIngredientList() {
         slider.type = "range"
         slider.min = 1
         slider.value = 100
+
         let output = document.createElement("div")
+
+        function update() {
+            const res = calculateNutrition(item, slider.value)
+
+            output.textContent = res
+            .map(n => `${n.name}: ${n.value.toFixed(1)} ${n.unit}`) //formats data to readable text 
+            .join("\n");
+        }
+
+        slider.addEventListener("input", update);
 
         li.appendChild(slider)
 
@@ -85,10 +96,21 @@ function renderIngredientList() {
         
         ingredientList.appendChild(li)
 
+        update()
+
     })
 }
 
 
+
+function calculateNutrition(item, grams){
+    const factor = grams / 100
+    return item.nutrition.map(n => ({
+        name: n.name,
+        value: n.value * factor,
+        unit: n.unit
+    }))
+}
 
 
 async function getNutrition(id){
