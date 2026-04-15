@@ -168,7 +168,7 @@ function calculateTotals(){
         const nutrition = calculateNutrition(item, item.grams) 
 
         for(let n of nutrition){ // check loop through each nutrition for the item 
-            if(!totals[n.name]){
+            if(totals[n.name] === undefined){
                 totals[n.name] = n.value
             } else {
                 totals[n.name] += n.value
