@@ -77,16 +77,16 @@ function renderIngredientList() {
         slider.type = "range"
         slider.min = 1
         slider.max = 1000
-        slider.value = 100
+        slider.value = item.grams
 
         let nutritionOutput = document.createElement("div")
         let unitOutput = document.createElement("div")
 
         function update() {
-            const res = calculateNutrition(item, slider.value)
-            const grams = slider.value
+            item.grams = Number(slider.value)
+            const res = calculateNutrition(item, item.grams)
 
-            unitOutput.textContent = `${grams} g`
+            unitOutput.textContent = `${item.grams} g`
             nutritionOutput.textContent = res
             .map(n => `${n.name}: ${n.value.toFixed(1)} ${n.unit}`) //formats data to readable text 
             .join("\n");
@@ -146,12 +146,15 @@ async function addItemWithNutrition(item)
 
     const fullItem = {
         ...item, //copies all the properties from item into fullitem
-        nutrition: nutrition
+        nutrition: nutrition,
+        grams: 100
     }
 
     addToIngredientList(fullItem)
 
 }
 
-
+//todo 
+//make the values stop changing when adding a new item 
+//create sum 
 
