@@ -1,7 +1,7 @@
 const input = document.getElementById("input")
 const searchBtn = document.getElementById("search")
 let ingredientList = document.getElementById("ingredient-list")
-
+let sum = document.getElementById("sum")
 let resultList = document.getElementById("result-list") 
 
 let ingredients = []
@@ -158,3 +158,8 @@ async function addItemWithNutrition(item)
 //make the values stop changing when adding a new item 
 //create sum 
 
+
+function calculateTotals(){
+    const totals = {}
+     
+}
