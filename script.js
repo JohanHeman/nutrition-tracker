@@ -161,5 +161,19 @@ async function addItemWithNutrition(item)
 
 function calculateTotals(){
     const totals = {}
-     
+    
+    //fill totals with the total amount of nutrition summed from each item in the ingredient list
+
+    for(let item of selectedIngredients){ // loop through the ingredient list 
+        const nutrition = calculateNutrition(item, item.grams) 
+
+        for(let n of nutrition){ // check loop through each nutrition for the item 
+            if(!totals[n.name]){
+                totals[n.name] = n.value
+            } else {
+                totals[n.name] += n.value
+            }
+        }
+    }
+    return totals
 }
