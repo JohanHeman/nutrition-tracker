@@ -30,6 +30,7 @@ main{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    gap: 60px;
 }
 
 .search-container{
@@ -105,19 +106,24 @@ s
 .resultlist-container{
     height: 360px;
     overflow-y: auto;
+    border-bottom: 1px solid #374151; 
+    border-radius: 14px;
 
 }
 
 #ingredient-list{
     list-style:none;
+    overflow-y: auto;
     
 }
 
 #ingredient-list li {
 
     list-style: none;
-    background-color: #1e293b;
-    color: #f1f5f9;
+    background-color: #273548;
+    color: #e2e8f0;
+    border-bottom: 1px solid #334155;
+
     border-bottom: 1px solid black; 
     padding: 12px 14px;
     border-radius: 8px;
@@ -131,9 +137,27 @@ s
     white-space: normal;
     overflow-wrap: break-word;
     word-break: break-word;
+    margin: 11px;
+}
+
+#ingredient-list li:hover{
+    background-color: #334155;
 }
 
 .ingredients-container{
-    height: 360px;
+    height: 400px;
+    background-color: #1f2937;
+    border-bottom: 1px solid #374151; 
+    border-radius: 14px;
+    overflow-y: auto;
 }
 
+
+
+
+@media(max-width:768px)
+{
+    main{
+        flex-direction: column;
+    }
+}
