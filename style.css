@@ -148,6 +148,19 @@ s
     background-color: #334155;
 }
 
+#ingredient-list li{
+    opacity: 0;
+    transform: scale(0.98);
+    transition: all 0.6s ease;
+}
+
+#ingredient-list li.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+
 .ingredients-container{
     height: 70vh;
     background-color: #1f2937;

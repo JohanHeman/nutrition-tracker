@@ -112,6 +112,10 @@ function renderIngredientList() {
         
         ingredientList.appendChild(li)
 
+        setTimeout(() => {     //runs the code when the callstack is empty
+            li.classList.add("show")
+        }, 0)
+
         update()
 
     })
