@@ -132,7 +132,7 @@ s
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
-    height: 120px;
+    height: auto;
     max-width: 100%;
     white-space: normal;
     overflow-wrap: break-word;
@@ -161,6 +161,14 @@ s
     main{
         flex-direction: column;
     }
+    li{
+        white-space: normal;
+        word-break: break-word;
+    }
+    input[type="range"] {
+        width: 100%;
+    }
+
 }
 
 
