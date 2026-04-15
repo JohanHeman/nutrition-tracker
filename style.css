@@ -138,6 +138,7 @@ s
     overflow-wrap: break-word;
     word-break: break-word;
     margin: 11px;
+    
 }
 
 #ingredient-list li:hover{
@@ -160,4 +161,17 @@ s
     main{
         flex-direction: column;
     }
+}
+
+
+#sum{
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: #1f2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
 }

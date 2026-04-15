@@ -7,6 +7,7 @@ let resultList = document.getElementById("result-list")
 let ingredients = []
 let selectedIngredients = []
 
+
 const foodURL = "https://dataportal.livsmedelsverket.se/livsmedel/api/v1/livsmedel?limit=2000&offset=0";
 
 
@@ -90,6 +91,16 @@ function renderIngredientList() {
             nutritionOutput.textContent = res
             .map(n => `${n.name}: ${n.value.toFixed(1)} ${n.unit}`) //formats data to readable text 
             .join("\n");
+
+            sum.innerHTML = ""
+            const totals = calculateTotals() //returns an object
+
+            for(let key in totals){
+                const div = document.createElement("div")
+                div.textContent = `${key}: ${totals[key].toFixed(1)}`
+                sum.appendChild(div)
+            }
+
         }
 
         slider.addEventListener("input", update);
