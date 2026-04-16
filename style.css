@@ -46,7 +46,7 @@ main{
     border: none;
     background-color: #1f2937;
     height: 150px;
-    width: 400px;
+    width: 40vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -57,6 +57,7 @@ main{
 
 .input-container input{
     height: 2.4rem;
+    width: 300px;
     border: none;
     border-radius: 24px;
     text-align: center;
@@ -191,7 +192,11 @@ main{
     .ingredients-container{
         height: 50vh;
     }
-
+   .input-container input{
+    max-width: 90%;
+   } 
+    .input-container button{
+    max-width: 80%;}
 }
 
 
