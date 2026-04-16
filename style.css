@@ -175,12 +175,22 @@ s
 
 @media(max-width:768px)
 {
+    main{
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        align-items: center;
+    }
     li{
         white-space: normal;
         word-break: break-word;
     }
     input[type="range"] {
         width: 100%;
+    }
+
+    .ingredients-container{
+        height: 50vh;
     }
 
 }
