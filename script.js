@@ -77,7 +77,7 @@ function renderIngredientList() {
         const slider = document.createElement("input")
         slider.type = "range"
         slider.min = 1
-        slider.max = 1000
+        slider.max = 10000
         slider.value = item.grams
 
         let nutritionOutput = document.createElement("div")
